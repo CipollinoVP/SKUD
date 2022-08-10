@@ -30,21 +30,14 @@ GtkWidget *PostLabelD;
 GtkWidget *DivisionLabelD;
 GtkWidget *CodeLabelD;
 GtkWidget *TimeWorkOfficialD;
-GtkWidget *TimeOutOfficialD;
-GtkWidget *DaySkipNoOfficialD;
 GtkWidget *FinishWorkD;
-GtkWidget *TimeWorkOutD;
-GtkWidget *TimeOutPersonalD;
-GtkWidget *DaySkipOfficialD;
 GtkWidget *SeansesViewD;
 GtkWidget *StartWorkD;
 GtkWidget *SearchButtonD;
 GtkWidget *GetReportButtonD;
-GtkWidget *official_memo_buttonD;
 GtkWidget *CorrectButtonD;
 GtkWidget *GetPassD;
 GtkWidget *EscapeButtonD;
-GtkWidget *EnterBigOutD;
 GObject *NumColumnD;
 GtkWidget *ApprovalButtonD;
 
@@ -159,17 +152,7 @@ static void create_window_director()
         g_critical("Ошибка при получении виджета окна\n");
     if(!(TimeWorkOfficialD = GTK_WIDGET(gtk_builder_get_object(builder, "TimeWorkOfficial"))))
         g_critical("Ошибка при получении виджета окна\n");
-    if(!(TimeOutOfficialD = GTK_WIDGET(gtk_builder_get_object(builder, "TimeOutOfficial"))))
-        g_critical("Ошибка при получении виджета окна\n");
-    if(!(DaySkipNoOfficialD = GTK_WIDGET(gtk_builder_get_object(builder, "DaySkipNoOfficial"))))
-        g_critical("Ошибка при получении виджета окна\n");
     if(!(FinishWorkD = GTK_WIDGET(gtk_builder_get_object(builder, "FinishWork"))))
-        g_critical("Ошибка при получении виджета окна\n");
-    if(!(TimeWorkOutD = GTK_WIDGET(gtk_builder_get_object(builder, "TimeWorkOut"))))
-        g_critical("Ошибка при получении виджета окна\n");
-    if(!(TimeOutPersonalD = GTK_WIDGET(gtk_builder_get_object(builder, "TimeOutPersonal"))))
-        g_critical("Ошибка при получении виджета окна\n");
-    if(!(DaySkipOfficialD = GTK_WIDGET(gtk_builder_get_object(builder, "DaySkipOfficial"))))
         g_critical("Ошибка при получении виджета окна\n");
     if(!(ViewWorkersD = GTK_WIDGET(gtk_builder_get_object(builder, "ViewWorkers"))))
         g_critical("Ошибка при получении виджета окна\n");
@@ -177,15 +160,11 @@ static void create_window_director()
         g_critical("Ошибка при получении виджета окна\n");
     if(!(GetReportButtonD = GTK_WIDGET(gtk_builder_get_object(builder, "GetReportButton"))))
         g_critical("Ошибка при получении виджета окна\n");
-    if(!(official_memo_buttonD = GTK_WIDGET(gtk_builder_get_object(builder, "official_memo_button"))))
-        g_critical("Ошибка при получении виджета окна\n");
     if(!(CorrectButtonD = GTK_WIDGET(gtk_builder_get_object(builder, "CorrectButton"))))
         g_critical("Ошибка при получении виджета окна\n");
     if(!(GetPassD = GTK_WIDGET(gtk_builder_get_object(builder, "GetPass"))))
         g_critical("Ошибка при получении виджета окна\n");
     if(!(EscapeButtonD = GTK_WIDGET(gtk_builder_get_object(builder, "EscapeButton"))))
-        g_critical("Ошибка при получении виджета окна\n");
-    if(!(EnterBigOutD = GTK_WIDGET(gtk_builder_get_object(builder, "EnterBigOut"))))
         g_critical("Ошибка при получении виджета окна\n");
     if(!(StartWorkD = GTK_WIDGET(gtk_builder_get_object(builder, "StartWork"))))
         g_critical("Ошибка при получении виджета окна\n");
@@ -212,11 +191,9 @@ int director_window(int argc, char *argv[], bool status){
     g_signal_connect(G_OBJECT(windowD), "destroy-event", G_CALLBACK(window_destroy_Dapp), NULL);
     g_signal_connect(G_OBJECT(SearchButtonD), "clicked", G_CALLBACK(Press_SearchButton), NULL);
     g_signal_connect(G_OBJECT(GetPassD), "clicked", G_CALLBACK(Press_GetPass), NULL);
-    g_signal_connect(G_OBJECT(official_memo_buttonD), "clicked", G_CALLBACK(Press_official_memo_button), NULL);
     g_signal_connect(G_OBJECT(GetReportButtonD), "clicked", G_CALLBACK(Press_GetReportButton), NULL);
     g_signal_connect(G_OBJECT(CorrectButtonD), "clicked", G_CALLBACK(Press_Correct_button), NULL);
     g_signal_connect(G_OBJECT(EscapeButtonD), "clicked", G_CALLBACK(window_destroy_Dapp), NULL);
-    g_signal_connect(G_OBJECT(EnterBigOutD), "clicked", G_CALLBACK(Press_EnterBigOut), NULL);
     g_signal_connect(G_OBJECT(ViewWorkersD), "cursor-changed", G_CALLBACK(out_info_worker), NULL);
     g_signal_connect(G_OBJECT(NumColumnD), "clicked", G_CALLBACK(Sort_workers), NULL);
     gtk_widget_show(windowD);

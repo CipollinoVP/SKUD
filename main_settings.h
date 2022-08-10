@@ -22,12 +22,14 @@
 #define ADMIN 6
 #define CLOSE_LOGIN_APP 0
 
-#define SINGLE_PASS_SYSTEM 0
+#define SINGLE_PASS_SYSTEM_APP 0
 #define DIRECTOR_APP 1
-#define SYS_ADMIN_APP 2
+#define REGISTER_APP 2
 #define MESSENGER_APP 3
 #define SECURITY_APP 4
 #define MAIN_APP 5
+#define ADMIN_APP 6
+#define CHANGE_PASSWORD_APP 7
 #define NO_APP -1
 
 int type_user = 0;

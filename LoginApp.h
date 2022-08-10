@@ -102,7 +102,7 @@ void window_destroy_lapp(GtkWidget *object)
 void authorizate_button (GtkWidget *object){
     login = gtk_entry_get_text(GTK_ENTRY(LoginEntryA));
     std::string password = gtk_entry_get_text(GTK_ENTRY(PasswordEntryA));
-    conn = PQsetdbLogin("93.159.239.82","5432","","",
+    conn = PQsetdbLogin("localhost","5432","","",
                         "345MF",login.c_str(),password.c_str());
     if (PQstatus(conn) == CONNECTION_BAD) {
         gtk_label_set_text(GTK_LABEL(StatusLoginA),"Неверный логин или пароль");
